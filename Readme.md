@@ -39,3 +39,36 @@ Usage:
 #运行程序
 ./htop
 ```
+
+生成后的文件结构
+```bash
+[root@localhost linux_mk_selfdeps_run]# tree /home/test_root/
+/home/test_root/
+└── lib64
+    ├── ld-2.17.so
+    ├── ld-linux-x86-64.so.2 -> ld-2.17.so
+    ├── libc-2.17.so
+    ├── libc.so.6 -> libc-2.17.so
+    ├── libdl-2.17.so
+    ├── libdl.so.2 -> libdl-2.17.so
+    ├── libgcc_s-4.8.5-20150702.so.1
+    ├── libgcc_s.so.1 -> libgcc_s-4.8.5-20150702.so.1
+    ├── libm-2.17.so
+    ├── libm.so.6 -> libm-2.17.so
+    ├── libncursesw.so.5 -> libncursesw.so.5.9
+    ├── libncursesw.so.5.9
+    ├── libtinfo.so.5 -> libtinfo.so.5.9
+    └── libtinfo.so.5.9
+
+1 directory, 14 files
+
+[root@localhost linux_mk_selfdeps_run]# ldd ./htop 
+	linux-vdso.so.1 =>  (0x00007ffce4101000)
+	libncursesw.so.5 => /home/test_root/lib64/libncursesw.so.5 (0x00007fc2046f5000)
+	libtinfo.so.5 => /home/test_root/lib64/libtinfo.so.5 (0x00007fc2044c9000)
+	libm.so.6 => /home/test_root/lib64/libm.so.6 (0x00007fc2041c4000)
+	libgcc_s.so.1 => /home/test_root/lib64/libgcc_s.so.1 (0x00007fc203fad000)
+	libc.so.6 => /home/test_root/lib64/libc.so.6 (0x00007fc203bdb000)
+	libdl.so.2 => /home/test_root/lib64/libdl.so.2 (0x00007fc2039d6000)
+	/home/test_root/lib64/ld-linux-x86-64.so.2 => /lib64/ld-linux-x86-64.so.2 (0x00007fc204930000
+```
