@@ -1,8 +1,8 @@
+
 ## 功能说明
+Building elf programs that depend on themselves. Given an ELF file, copy all its dependent files to a specified directory and modify the information of all its dependent dynamic libraries to the specified directory, especially modifying the dependencies of libc and the ld loader.
 
-Given an ELF file, copy all its dependent files to a specified directory and modify the information of all its dependent dynamic libraries to the specified directory, especially modifying the dependencies of libc and the loader.
-
-给定一个elf文件，将其依赖的文件都拷贝到指定目录，并且修改其所有依赖的动态库的信息到指定目录，特别是修改libc和装载器的依赖。
+构建自依赖elf程序。给定一个elf文件，将其依赖的文件都拷贝到指定目录，并且修改其所有依赖的动态库的信息到指定目录，特别是修改libc和ld装载器的依赖。
 
 可用于将高版本系统中的可执行程序迁移到低版本的系统上运行。例如将centos 7上的部分程序迁移到centos 6上。
 
